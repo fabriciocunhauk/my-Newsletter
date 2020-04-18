@@ -1,14 +1,13 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const request = require("request");
-const htpps = require("https")
+const htpps = require("https");
 
 const app = express();
 
 //specifies a static folder which contains css.style and images
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended: true}));
-
 
 app.get("/", function(req, res){
   res.sendFile(__dirname + "/signup.html")
@@ -45,9 +44,9 @@ const options = {
 const request = htpps.request(url, options, function(response){
 
   if (response.statusCode === 200) {
-    res.sendFile(__dirname + "/success.html")
+    res.sendFile(__dirname + "/success.html");
   } else {
-    res.sendFile(__dirname + "/failure.html")
+    res.sendFile(__dirname + "/failure.html");
   }
 
   response.on("data", function(data){
